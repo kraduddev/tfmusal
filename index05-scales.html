@@ -11,13 +11,25 @@
 	
 	<script>
 
-		var dataArray = [20,40,50];
+		var dataArray = [5,40,50,60];
+		var width = 500;
+		var height = 500;
+
+		var widthScale = d3.scale.linear()
+							.domain([0, 60])
+							.range([0, width]);
+
+		var color = d3.scale.linear()
+						.domain([0,60])
+						.range(["red","blue"]);					
+
+
 
 		var canvas = d3.select("body")
 						.append("svg")
 						.attr({
-							width: '500',
-							height: '500'
+							width: width,
+							height: height
 						});
 
 		var bars = canvas.selectAll("rect")
@@ -25,9 +37,10 @@
 						.enter()
 							.append("rect")
 							.attr({
-								width: function(d){ return d; },
+								width: function(d){ return widthScale(d); },
 								height: '50',
-								y : function(d, i) { return i*100}
+								y : function(d, i) { return i*100},
+								fill: function(d) { return color(d);}
 							});
 
 	</script>

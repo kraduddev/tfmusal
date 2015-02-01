@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo D3</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<h1>Ejemplo D3</h1>
+
+	
+	<script>				
+		var canvas = d3.select("body").append("svg")
+						.attr({
+							width: '500',
+							height: '500'
+						});
+
+		var data = [
+			{x: 10, y:20},
+			{x: 40, y:60},
+			{x: 50, y:70}
+		]
+
+		var group = canvas.append('g')
+						.attr('transform', 'translate(100,100)');
+
+
+		var line =  d3.svg.line()
+						.x(function(d){return d.x;})
+						.y(function(d){return d.y;})
+
+		group.selectAll("path")
+			.data([data])
+			.enter()
+			.append('path')
+			.attr('d', line)
+			.attr('fill', 'none')
+			.attr({
+				stroke: '#000',
+				'stroke-width': 10
+			});
+
+	</script>
+
+</body>
+</html>

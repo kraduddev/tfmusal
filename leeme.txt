@@ -1,0 +1,3 @@
+Esta serie de index.html contiene la serie de videotutoriales de Youtbe "d3Vienno" - https://www.youtube.com/channel/UCNYL0ZF2j8-OSGZ4iHBLNPA
+
+El número detrás del index indica el número del videotutorial asociado al curso de "d3Vienno".
